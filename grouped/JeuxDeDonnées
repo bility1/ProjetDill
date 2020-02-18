@@ -1,0 +1,114 @@
+// INSERTION ENTREPRISE
+
+db.Acteur.insert({adresseEmail : "soprasteria@gmail.com", nomEntreprise: "Sopra steria", prenom: "SSG", role: "ENTREPRISE", sujets : [{nomSujet :"Creation dynamique d'objets 3D", ville : "Paris", statut : "VALIDER", description : "L'objectif de ce projet est de créer dynamiquement de nouveaux objets à l'intérieur d'un monde pour l'enrichir, voire construire un nouveau monde avec ses nouveaux objets. Il peut y avoir 2 approches différentes pour atteindre cet objectif, sachant que la première serait plus satisfaisante que la seconde."}, 
+{nomSujet :"Parseur XML", ville : "Orleans", statut : "EN_ATTENTE", description : "Il s'agit de concevoir et réaliser un parseur d'objets 3D décrits dans des fichiers de description de mondes (ou scènes) au format XML."}]})
+
+db.Acteur.insert({adresseEmail : "atos@gmail.com", nomEntreprise: "Atos", prenom: "atos_group", role: "ENTREPRISE", sujets : [{nomSujet :"Automatisation industrielle", ville : "Orleans", statut : "VALIDER", description : "Apprenez à optimiser votre solution"},
+{nomSujet :"Developpement d'une application de messagerie", ville : "Orleans", statut : "REFUSER", description : "Le projet a pour objectif de développer ce service dans un contexte SIP conformément à cette recommendation. Il sera notamment nécessaire, dans ce contexte, de développer un SIP de type proxy."}]})
+
+// INSERTION ETUDIANTS
+db.Acteur.insert(
+
+   {
+	adresseEmail: "serhat.dvcgl@etu.univ-orleans.fr",
+	nom: "DVCGL",
+	prenom: "Serhat",
+	role : "ETUDIANT",
+	numeroEtudiant : "2150000",
+	annee : "2020",
+	numeroGroupe : "1",
+	voeux : [ { nomProjet : "Creation dynamique d'objets 3D", position: "1", etat : "EN_ATTENTE"}, 
+	{ nomProjet : "Developpement android", position: "2", etat : "EN_ATTENTE"}, 
+	{nomProjet : "Automatisation industrielle", position: "3", etat : "EN_ATTENTE"}],
+	projets : [{ id :"0001", nom : "Automatisation industrielle", ville: "Orleans", description : "Apprenez à optimiser votre solution",
+	logo : "logo.jpg" , fichier : "fichier.pdf", livrables : [ {date : "21/01/2020", dateDepot: "19/01/2020", archive : "archive.zip" }]}]
+	
+})
+
+//Il a déposé dans les temps
+db.Acteur.insert(
+
+   {
+	adresseEmail: "insert@email.here",
+	nom: "nom",
+	prenom: "prenom",
+	role : "ETUDIANT",
+	numeroEtudiant : "2150000",
+	annee : "2020",
+	numeroGroupe : "1",
+	voeux : [ { nomProjet : "Creation dynamique d'objets 3D", position: "1", etat : "EN_ATTENTE"}, 
+	{ nomProjet : "Developpement android", position: "2", etat : "EN_ATTENTE"}, 
+	{nomProjet : "Automatisation industrielle", position: "3", etat : "EN_ATTENTE"}],
+	projets : [{ id :"0001", nom : "Automatisation industrielle", ville: "Orleans", description : "Apprenez à optimiser votre solution",
+	logo : "logo.jpg" , fichier : "fichier.pdf", livrables : [ {date : "10/01/2020", dateDepot: "10/01/2020", archive : "archive.zip" }]}]
+	
+})
+
+//Il a deposé en retard
+db.Acteur.insert(
+
+   {
+	adresseEmail: "laura.hure@etu.univ-orleans.ent",
+	nom: "MANIVANNIN",
+	prenom: "Cecile",
+	role : "ETUDIANT",
+	numeroEtudiant : "2150001",
+	annee : "2020",
+	numeroGroupe : "2",
+	voeux : [ { nomProjet : "Automatisation industrielle", position: "1", etat : "EN_ATTENTE"}, 
+	{ nomProjet : "Creation dynamique d'objets 3D", position: "2", etat : "EN_ATTENTE"}, 
+	{nomProjet : "Developpement d'une application de messagerie", position: "3", etat : "EN_ATTENTE"}],
+	projets : [{ id :"0002", nom : "Automatisation industrielle", ville: "Orleans", description : "Apprenez à optimiser votre solution",
+	logo : "logo.jpg" , fichier : "fichier.pdf", livrables : [ {date : "10/01/2020", dateDepot: "11/01/2020", archive : "archive.zip"} ]}]
+	
+})
+
+//Ils n'ont jamais déposé de livrables
+db.Acteur.insert({
+	adresseEmail:"laurahure@gmail.com",
+	nom:"hure",
+	prenom:"laura",
+	role:"ETUDIANT",
+	numeroGroupe:"3",
+	numeroEtudiant : "2152843",
+	projets : [{ id :"0003", nom : "Automatisation industrielle", ville: "Orleans", description : "Apprenez à optimiser votre solution",
+	logo : "logo.jpg" , fichier : "fichier.pdf", livrables : [  ]}]
+})
+
+db.Acteur.insert({
+	adresseEmail:"etu5@gmail.com",
+	nom:"etu5",
+	prenom:"etu5",
+	role:"ETUDIANT",
+	numeroGroupe:"3",
+	numeroEtudiant : "2152843",
+	projets : [{ id :"0003", nom : "Automatisation industrielle", ville: "Orleans", description : "Apprenez à optimiser votre solution",
+	logo : "logo.jpg" , fichier : "fichier.pdf", livrables : [  ]}]
+})
+
+//Il a deposé deux livrables dans les temps 
+db.Acteur.insert({
+	adresseEmail:"etu6@gmail.com",
+	nom:"etu6",
+	prenom:"etu6",
+	role:"ETUDIANT",
+	numeroGroupe:"5",
+	numeroEtudiant : "2152843",
+	projets : [{ id :"0003", nom : "Automatisation industrielle", ville: "Orleans", description : "Apprenez à optimiser votre solution",
+	logo : "logo.jpg" , fichier : "fichier.pdf", livrables : [{date:"10/01/2020",dateDepot:"9/01/2020", archive:"fichier.zip"},{date:"17/01/2020",dateDepot:"17/01/2020",archive:"dossier.zip"}]}]
+})
+
+//Il a deposé uniquement le livrable pour la 2 date de limite et donc 
+//a deposé en retard pour la 2e date
+db.Acteur.insert({
+	adresseEmail:"etu7@gmail.com",
+	nom:"etu7",
+	prenom:"etu7",
+	role:"ETUDIANT",
+	numeroGroupe:"6",
+	numeroEtudiant : "2152843",
+	projets : [{ id :"0003", nom : "Automatisation industrielle", ville: "Orleans", description : "Apprenez à optimiser votre solution",
+	logo : "logo.jpg" , fichier : "fichier.pdf", livrables : [{date:"10/01/2020",dateDepot:"16/01/2020", archive:"fichier.zip"},{date:"17/01/2020",dateDepot:"16/01/2020",archive:"dossier.zip"}]}]
+})
+
+// INSERTION ENSEIGNANT

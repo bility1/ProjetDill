@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+    <constant name="struts.devMode" value="true" />
+    <constant name="struts.enable.DynamicMethodInvocation" value="false"/>
+    <constant name="struts.custom.i18n.resources" value="mesTextes"/>
+
+    <package name="default" namespace="/" extends="struts-default">
+        <default-action-ref name="connexion"/>
+        <action name="connexion">
+            <result name="success">pages/login/login.jsp</result>
+        </action>
+
+        <action name="authentification" class="Actions.Authentification" >
+            <result name="success">pages/menu.jsp</result>
+            <result name="input">pages/login/login.jsp</result>
+        </action>
+
+        <action name="deconnexion" class="Actions.Authentification" method="logout">
+            <result name="input">pages/login/login.jsp</result>
+        </action>
+
+        <action name="inscription" class="Actions.Role">
+            <result name="success">pages/inscription/formInscription.jsp</result>
+        </action>
+        <action name="inscriptionValider" class="Actions.Inscription" >
+            <result name="success">pages/inscription/successInscription.jsp</result>
+            <result name="input">pages/inscription/formInscription.jsp</result>
+        </action>
+
+        <action name="changepassword">
+            <result name="success">pages/changepassword/formchange.jsp</result>
+        </action>
+        <action name="confirmChange" class="Actions.ChangePassword">
+            <result name="success">pages/login/login.jsp</result>
+            <result name="input">pages/changepassword/formchange.jsp</result>
+        </action>
+
+        <action name="menu">
+            <result name="success">pages/menu.jsp</result>
+        </action>
+    </package>
+
+    <package name="admin" namespace="/admin" extends="struts-default">
+        <interceptors>
+            <interceptor name="allowAccessIntercept" class="Global.AllowAccessInterceptor"></interceptor>
+            <interceptor name="allowAccessIntercepAdmin" class="Global.AllowAccessInterceptorAdmin"></interceptor>
+            <interceptor-stack name="maStack">
+                <interceptor-ref name="allowAccessIntercept"/>
+                <interceptor-ref name="allowAccessIntercepAdmin"></interceptor-ref>
+                <interceptor-ref name="defaultStack"/>
+            </interceptor-stack>
+        </interceptors>
+        <default-interceptor-ref name="maStack"></default-interceptor-ref>
+
+        <global-results>
+            <result name="allowAccess">/pages/login/login.jsp</result>
+            <result name="notAllowAccess">/pages/NotAllowAccess.jsp</result>
+        </global-results>
+
+        <action name="consultationSujets" class="Actions.admin.ConsultationSujets">
+            <result name="success">pages/consultationSujets.jsp</result>
+        </action>
+
+        <action name="validerSujets" class="Actions.admin.ValiderSujets">
+            <result name="success">pages/validerSujets.jsp</result>
+        </action>
+
+        <action name="refuserSujets" class="Actions.admin.RefuserSujets">
+            <result name="success">pages/refuserSujets.jsp</result>
+        </action>
+
+
+        <action name="gestionDesSujets" class="Actions.admin.AffichageSujets">
+            <result name="success">pages/affichageSujets.jsp</result>
+        </action>
+
+        <action name="menuAdmin">
+            <result name="success">pages/menu.jsp</result>
+        </action>
+
+        <action name="gestionDesVoeux" class="Actions.admin.AffichagesVoeux">
+            <result name="success">pages/affichageVoeux.jsp</result>
+        </action>
+
+        <action name="validerVoeux" class="Actions.admin.ValiderVoeux">
+            <result name="success">pages/validerVoeux.jsp</result>
+        </action>
+
+        <action name="uploadAction" method="execute" class="Actions.admin.FileUploadAction">
+            <result name="success">pages/uploadSuccess.jsp</result>
+            <result name="input">pages/upload.jsp</result>
+        </action>
+    </package>
+
+    <package name="enseignant" namespace="/enseignant" extends="struts-default">
+        <interceptors>
+            <interceptor name="allowAccessIntercept" class="Global.AllowAccessInterceptor"></interceptor>
+            <interceptor name="allowAccessInterceptEnseignant" class="Global.AllowAcccessInterceptorEnseignant"></interceptor>
+            <interceptor-stack name="maStack">
+                <interceptor-ref name="allowAccessIntercept"/>
+                <interceptor-ref name="allowAccessInterceptEnseignant"></interceptor-ref>
+                <interceptor-ref name="defaultStack"/>
+            </interceptor-stack>
+        </interceptors>
+        <default-interceptor-ref name="maStack"></default-interceptor-ref>
+
+        <global-results>
+            <result name="allowAccess">/pages/login/login.jsp</result>
+            <result name="notAllowAccess">/pages/NotAllowAccess.jsp</result>
+        </global-results>
+
+        <action name="menuEnseignant">
+            <result name="success">pages/menu.jsp</result>
+        </action>
+
+        <action name="projets" class="Actions.enseignant.ProjetsAction">
+            <result name="input">pages/projets.jsp</result>
+            <result name="success">pages/projets.jsp</result>
+        </action>
+
+        <action name="etatlivrable" class="Actions.enseignant.SuiviLivrable">
+            <result name="success">pages/etatlivrable.jsp</result>
+        </action>
+        <action name="maillivrable" class="Actions.enseignant.SuiviLivrable" method="validerenvoieMail">
+            <result name="success">pages/etatlivrable.jsp</result>
+        </action>
+
+    </package>
+
+    <package name="etudiant" namespace="/etudiant" extends="struts-default">
+        <interceptors>
+            <interceptor name="allowAccessIntercept" class="Global.AllowAccessInterceptor"></interceptor>
+            <interceptor name="allowAccessIntercepEtudiant" class="Global.AllowAccessInterceptorEtudiant"></interceptor>
+            <interceptor-stack name="maStack">
+                <interceptor-ref name="allowAccessIntercept"/>
+                <interceptor-ref name="allowAccessIntercepEtudiant"></interceptor-ref>
+                <interceptor-ref name="defaultStack"/>
+            </interceptor-stack>
+        </interceptors>
+        <default-interceptor-ref name="maStack"></default-interceptor-ref>
+
+        <global-results>
+            <result name="allowAccess">/pages/login/login.jsp</result>
+            <result name="notAllowAccess">/pages/NotAllowAccess.jsp</result>
+        </global-results>
+
+        <action name="suiviavancement" class="Actions.Etudiants.SuiviAvancement">
+            <result name="success">pages/suiviavancement.jsp</result>
+        </action>
+
+        <action name="menuEtudiant">
+            <result name="success">pages/menu.jsp</result>
+        </action>
+        <action name="envoienotifvoeu" class="Actions.Etudiants.NotificationVoeu">
+            <result name="success">pages/notificationvoeu/voeu.jsp</result>
+        </action>
+        <action name="validerenvoie" class="Actions.Etudiants.NotificationVoeu" method="validerenvoieMail">
+            <result name="success">pages/notificationvoeu/valider.jsp</result>
+        </action>
+        <action name="notifsvoeux" class="Actions.Etudiants.NotificationVoeu" method="listeNotifs">
+            <result name="success">pages/notificationvoeu/listenotifvoeux.jsp</result>
+        </action>
+
+        <action name="goToAfficherLesSujets" class="Actions.Etudiants.ListeDesSujetsValider">
+            <result name="success">pages/Inscription_des_sujets.jsp</result>
+            <result name="input">pages/menu.jsp</result>
+        </action>
+        <action name="goToSinscrire" class="Actions.Etudiants.ListeDesSujetsValider" method="doInscription">
+            <result name="success">pages/Inscription_des_sujets.jsp</result>
+            <result name="input">pages/menu.jsp</result>
+        </action>
+        <action name="consultation_projet" class="Actions.Etudiants.Consultation_projet">
+            <result name="success">pages/Consultation_projet.jsp</result>
+            <result name="input">pages/menu.jsp</result>
+        </action>
+
+    </package>
+
+    <package name="entreprise" namespace="/entreprise" extends="struts-default">
+
+        <action name="ajoutProposition" class="Actions.entreprise.AjoutProposition">
+            <result name="success">pages/mesPropositions.jsp</result>
+            <result name="input">pages/ajoutProposition.jsp</result>
+        </action>
+
+        <action name="menuEntreprise">
+            <result name="success">pages/menuEntreprise.jsp</result>
+        </action>
+
+        <action name="propositionSujet">
+            <result name="success">pages/ajoutProposition.jsp</result>
+        </action>
+
+        <action name="mesPropositions" class="Actions.entreprise.MesPropositions">
+            <result name="success">pages/mesPropositions.jsp</result>
+        </action>
+
+        <action name="voirSujet" class="Actions.entreprise.VoirSujet">
+            <result name="success">pages/consulterProjet.jsp</result>
+        </action>
+
+    </package>
+</struts>

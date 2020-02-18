@@ -1,0 +1,32 @@
+TODO ajouter les class associées aux JSP ici
+Aminatou
+    Authentification.java
+        login/login.jsp
+
+     Inscription.java
+         les jsp dans inscription
+     ChangePassword/java
+          les jsp dans changepassword
+     // fonctions AuthentificationDAO modfiée
+     SendEMAil.java pour envoyé des mail pour l'instant pas utilisé dans le package dto
+
+
+Notifications avancement voeux
+n'oublie pas de relancer docker-compose avec kafka, t'as pas à creer de topic, c'est le programme qui crée le topic
+    Nouvelle classe:
+        KafkaProducerExample: produceru mon observable (crée un topic s'il existe pas et rajoute le message en parametre de la fonction runProducer(String)
+        EtudiantKafka : Observateur contien un champ acteurDTO
+        KafkaConsumer : recupere les données du topic dans une variable
+        NotificationVoeu : action
+    fichier modifié :
+        VoeuxEtudiant : ajout d'un champ notifs qui recupere les données du topic dans une list, et d'une methode get
+        pom.xml pour le kafka et le log
+     jsp : dans le dossier notificationvoeu
+
+Nb: l'envoie de mail se fait dans la methode notification;
+
+lo1 : vous avez juste a afficher la liste des voeu avec un bouton valider et refuser avec des actions qui font appel au produceur
+en lui donnant une chaine de caractetres qui à cette forme (aminatou.barry97@gmail.com,projet1,1,VALIDER,)
+(mail, nomprojet,position,etat) mais aprés avoir modifier l'etat du voeu.
+
+ .....

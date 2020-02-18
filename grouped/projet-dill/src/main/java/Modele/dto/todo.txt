@@ -1,0 +1,1 @@
+TODO ajouter des DTO si besoin de transporter des données de nouvelles tables, collections, topics

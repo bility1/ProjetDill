@@ -1,0 +1,23 @@
+----------
+db.Acteur.insert({"numeroEtudiant" : "4444444", "nom" : "nom1", "prenom" : "prenom1", "adresseEmail" : "aminatou.barry97@gmail.com", "annee" : "2019", "numeroGroupe" : "4", "role" : "etudiant", "projets" :[ { "nom" : "projet dill1", "ville" : "maville","id":"1",
+
+ "logo" : "logo.jpeg",
+"fichier" : "fichier.txt",
+
+     "description" : "description projet dill 1",
+}],
+ "livrables":[
+     {"date":'12/08/2020',"archive":'lienarchive1'},
+     ]
+  ,
+
+ "voeux":[
+     {"nomProjet":'projet1',"position":'1',"etat":'en_attente'},
+    {"nomProjet":'projet1',"position":'1',"etat":'refuser'},
+     ]
+  ,
+
+})
+
+
+

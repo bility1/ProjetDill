@@ -1,0 +1,10 @@
+TODO ajouter une class KafkaFactory pour donner des liens vers les différents topics
+TODO créer des class NomTopicDAO pour gérer les requetes sur ces topics
+
+SUIVI AVANCEMENT:
+    VoeuxEtudiant.java
+    SuiviAvancement.java
+
+    jsp suiviavancement.jsp
+
+    methode ajouté dans ActeurDTO : getEtudiant(String adresseEmail)

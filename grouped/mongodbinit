@@ -1,0 +1,14 @@
+use projet-dill
+db.createCollection("Acteur")
+
+db.Acteur.insert({adresseEmail:"entreprise1@mail.com", nom:"entreprise1", prenom:"ent1", role:"ENTREPRISE", sujets:[{nom:"sujet1",ville:"orleans", description:"descript1", statut:"VALIDER"}]})
+
+db.Acteur.insert({adresseEmail:"entreprise2@mail.com", nom:"entreprise2", prenom:"ent2", role:"ENTREPRISE", sujets:[{nom:"sujet2",ville:"tours", description:"descript2" ,statut:"REFUSER"}, {nom:"sujet4",ville:"paris", description:"descript1" ,statut:"VALIDER"}]})
+
+db.Acteur.insert({adresseEmail:"entreprise3@mail.com", nom:"entreprise3", prenom:"ent3", role:"ENTREPRISE", sujets:[{nom:"sujet3",ville:"tours",statut:"EN_ATTENTE"},{nom:"sujet4", ville:"nice", description:"descript4", statut:"VALIDER"}]})
+
+db.Acteur.insert({adresseEmail:"enseignant1@mail.com",nom:"enseignant1", prenom:"ens1", role:"ENSEIGNANT",projets:[{nom:"sujet1", ville:"orleans",id:1}]})
+
+db.Acteur.insert({adresseEmail:"enseignant2@mail.com", nom:"enseignant2", prenom:"ens2", role:"ENSEIGNANT", projets:[{nom:"sujet5",ville:"tours",id:5}]})
+
+db.Acteur.insert({adresseEmail:"enseignant3@mail.com", nom:"enseignant3", prenom:"ens3", role:"ENSEIGNANT", projets:[]})

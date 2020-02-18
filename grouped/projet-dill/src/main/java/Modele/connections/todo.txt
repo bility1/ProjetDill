@@ -1,0 +1,1 @@
+TODO ajouter une classe KafkaConnexion pour la connexion avec kafka en s'insipirant de la class MariadbConnexion
